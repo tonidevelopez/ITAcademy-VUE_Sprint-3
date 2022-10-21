@@ -19,7 +19,7 @@ function validate() {
 	var errorPhone = document.getElementById("errorPhone");
 
 	// Validate fields entered by the user: name, phone, password, and email
-	const form = document.querySelector(".form");
+	const form = document.querySelector(".form"); // especifica el submit del preventDefault
 
 	const regExp = {
 		name: /^[a-zA-ZÀ-ÿ\s]{3,}$/,
@@ -94,12 +94,11 @@ function validate() {
 		errorPhone.style.display = "none";
 	}
 
-	if (error > 0) {
-		alert("Error");
-	} else {
-		alert("OK");
+	if (error == 0) {
+		alert("Formulario enviado correctamente");
 	}
 	
+	//Evita el envío por defecto del formulario aunque esté erróneo
 	form.addEventListener("submit", (e) => {
 		e.preventDefault();
 	})
